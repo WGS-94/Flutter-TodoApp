@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
       theme: ThemeData(
-        // brightness: Brightness.dark,
+        brightness: Brightness.dark,
         primaryColor: Colors.lightBlue[800],
         fontFamily: 'Georgia',
         textTheme: const TextTheme(
