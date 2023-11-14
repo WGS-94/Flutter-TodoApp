@@ -21,7 +21,7 @@ class StartState extends State<LoginScreen> {
             child: Column(
       children: [
         Container(
-          height: 250,
+          height: 200,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
             color: Color(0xffF5591F),
