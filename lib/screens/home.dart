@@ -4,7 +4,7 @@ import 'package:flutter_todo_app/model/todo.dart';
 import 'package:flutter_todo_app/widget/todo_item.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
