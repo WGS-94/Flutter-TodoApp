@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_todo_app/constants/colors.dart';
 
 import 'screens/splash.dart';
 
@@ -17,8 +18,8 @@ class MyApp extends StatelessWidget {
         const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
       theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.lightBlue[800],
+        scaffoldBackgroundColor: green800,
+        primaryColor: Colors.white,
         fontFamily: 'Georgia',
         textTheme: const TextTheme(
           displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),

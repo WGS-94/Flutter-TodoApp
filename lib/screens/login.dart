@@ -26,7 +26,7 @@ class StartState extends State<LoginScreen> {
             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
             color: Color(0xffF5591F),
             gradient: LinearGradient(
-              colors: [(green800), (green600)],
+              colors: [(Color(0xffF5591F)), Color(0xffF2861E)],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
@@ -41,7 +41,7 @@ class StartState extends State<LoginScreen> {
                 child: Image.asset(
                   "assets/images/Projeqta_byQQ_Branco_SemConceito_H.png",
                   height: 57,
-                  // width: 90,
+                  width: 220,
                 ),
               ),
               Container(
@@ -63,12 +63,6 @@ class StartState extends State<LoginScreen> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
             color: Colors.grey[200],
-            boxShadow: const [
-              BoxShadow(
-                  offset: Offset(0, 10),
-                  blurRadius: 50,
-                  color: Color(0xffEEEEEE)),
-            ],
           ),
           child: const TextField(
             cursorColor: Color(0xffF5591F),
@@ -77,7 +71,7 @@ class StartState extends State<LoginScreen> {
                 Icons.email,
                 color: Color(0xffF5591F),
               ),
-              hintText: "Enter Email",
+              hintText: "Usuário",
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
             ),
@@ -91,12 +85,6 @@ class StartState extends State<LoginScreen> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
             color: const Color(0xffEEEEEE),
-            boxShadow: const [
-              BoxShadow(
-                  offset: Offset(0, 20),
-                  blurRadius: 100,
-                  color: Color(0xffEEEEEE)),
-            ],
           ),
           child: const TextField(
             cursorColor: Color(0xffF5591F),
@@ -106,7 +94,7 @@ class StartState extends State<LoginScreen> {
                 Icons.vpn_key,
                 color: Color(0xffF5591F),
               ),
-              hintText: "Enter Password",
+              hintText: "Senha",
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
             ),
@@ -119,7 +107,10 @@ class StartState extends State<LoginScreen> {
             onTap: () {
               // Write Click Listener Code Here
             },
-            child: const Text("Forget Password?"),
+            child: const Text(
+              "Forget Password?",
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ),
         GestureDetector(
@@ -138,12 +129,6 @@ class StartState extends State<LoginScreen> {
                   end: Alignment.centerRight),
               borderRadius: BorderRadius.circular(50),
               color: Colors.grey[200],
-              boxShadow: const [
-                BoxShadow(
-                    offset: Offset(0, 10),
-                    blurRadius: 50,
-                    color: Color(0xffEEEEEE)),
-              ],
             ),
             child: const Text(
               "LOGIN",
@@ -152,11 +137,14 @@ class StartState extends State<LoginScreen> {
           ),
         ),
         Container(
-          margin: const EdgeInsets.only(top: 10),
+          margin: const EdgeInsets.only(top: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Don't Have Any Account?  "),
+              const Text(
+                "Don't Have Any Account?  ",
+                style: TextStyle(color: Colors.white),
+              ),
               GestureDetector(
                 child: const Text(
                   "Register Now",
