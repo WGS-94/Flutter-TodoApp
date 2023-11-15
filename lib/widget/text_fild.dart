@@ -10,19 +10,23 @@ Widget textFild({
   TextInputType? keyBordType,
 }) {
   return Container(
-    height: 70.0,
-    padding: const EdgeInsets.symmetric(horizontal: 30.0),
+    height: 54.0,
+    padding: const EdgeInsets.symmetric(horizontal: 30),
     margin: const EdgeInsets.symmetric(
       horizontal: 20.0,
       vertical: 10.0,
     ),
     decoration: BoxDecoration(
-      color: blackTextFild,
-      borderRadius: BorderRadius.circular(20.0),
+      color: green700,
+      borderRadius: BorderRadius.circular(10),
     ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
+        const Icon(
+          Icons.vpn_key,
+          color: Color(0xffF5591F),
+        ),
         SizedBox(
           width: 270.0,
           child: TextField(
@@ -36,10 +40,6 @@ Widget textFild({
             ),
             style: headline2,
           ),
-        ),
-        const Icon(
-          Icons.vpn_key,
-          color: Color(0xffF5591F),
         ),
         // SvgPicture.asset(
         //   'assets/icon/$image',

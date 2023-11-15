@@ -19,7 +19,7 @@ class StartState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: blackBG,
+      backgroundColor: green800,
       body: Padding(
         padding: const EdgeInsets.only(top: 50.0),
         child: SingleChildScrollView(
@@ -29,43 +29,53 @@ class StartState extends State<LoginScreen> {
               Image.asset(
                 "assets/images/Projeqta_byQQ_Branco_SemConceito_H.png",
                 height: 57,
-                width: 220,
+                width: 250,
               ),
-              const SpaceVH(height: 10.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Program de especificadores  ",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                  GestureDetector(
-                    child: const Text(
-                      "Saiba mais",
-                      style: TextStyle(fontSize: 18, color: Color(0xffF5591F)),
+              const SpaceVH(height: 15.0),
+              // RichText(
+              //   text: TextSpan(children: (
+              //     TextSpan(
+              //       text: ' Saiba mais',
+              //       style: headlineDot.copyWith(
+              //           fontSize: 14.0, color: const Color(0xffF5591F)),
+              //     ),
+              //   )),
+              // ),
+              Center(
+                  child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => const SignUpScreen()));
+                },
+                child: RichText(
+                  text: TextSpan(children: [
+                    TextSpan(
+                      text: 'Programa de relacionamento para especificadores. ',
+                      style: headline.copyWith(
+                        fontSize: 14.0,
+                      ),
                     ),
-                    onTap: () {
-                      // Write Tap Code Here.
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => const SignUpScreen(),
-                      //     ));
-                    },
-                  )
-                ],
-              ),
-              const SpaceVH(height: 60.0),
+                    // TextSpan(
+                    //   text: ' Saiba mais',
+                    //   style: headlineDot.copyWith(
+                    //       fontSize: 14.0, color: const Color(0xffF5591F)),
+                    // ),
+                  ]),
+                ),
+              )),
+              const SpaceVH(height: 50.0),
               textFild(
                 controller: userName,
                 image: 'user.svg',
-                hintTxt: 'Username',
+                hintTxt: 'Usuário',
               ),
               textFild(
                 controller: userPass,
                 image: 'hide.svg',
                 isObs: true,
-                hintTxt: 'Password',
+                hintTxt: 'Senha',
               ),
               const SpaceVH(height: 10.0),
               Align(
@@ -75,20 +85,20 @@ class StartState extends State<LoginScreen> {
                   child: TextButton(
                     onPressed: () {},
                     child: const Text(
-                      'Forgot Password?',
+                      'Esqueceu a senha?',
                       style: headline3,
                     ),
                   ),
                 ),
               ),
-              const SpaceVH(height: 30.0),
+              const SpaceVH(height: 20.0),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Column(
                   children: [
                     Mainbutton(
                       onTap: () {},
-                      text: 'Sign in',
+                      text: 'ENTRAR',
                       btnColor: blueButton,
                     ),
                     const SpaceVH(height: 15.0),
@@ -102,16 +112,15 @@ class StartState extends State<LoginScreen> {
                       child: RichText(
                         text: TextSpan(children: [
                           TextSpan(
-                            text: 'Don\'t have an account? ',
+                            text: 'Não possuí uma conta? ',
                             style: headline.copyWith(
                               fontSize: 14.0,
                             ),
                           ),
                           TextSpan(
-                            text: ' Sign Up',
+                            text: ' Registre-se',
                             style: headlineDot.copyWith(
-                              fontSize: 14.0,
-                            ),
+                                fontSize: 14.0, color: const Color(0xffF5591F)),
                           ),
                         ]),
                       ),

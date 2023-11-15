@@ -25,11 +25,11 @@ const TextStyle headline2 = TextStyle(
 );
 const TextStyle headline3 = TextStyle(
   fontSize: 14,
-  color: grayText,
+  color: gray200,
   fontWeight: FontWeight.bold,
 );
 const TextStyle hintStyle = TextStyle(
   fontSize: 14,
-  color: grayText,
+  color: gray200,
   fontWeight: FontWeight.bold,
 );

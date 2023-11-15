@@ -21,11 +21,15 @@ class Mainbutton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 70.0,
+        height: 54.0,
         margin: const EdgeInsets.symmetric(horizontal: 20.0),
         decoration: BoxDecoration(
           color: btnColor,
-          borderRadius: BorderRadius.circular(20.0),
+          borderRadius: BorderRadius.circular(10.0),
+          gradient: const LinearGradient(
+              colors: [(Color(0xffF5591F)), Color(0xffF2861E)],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
