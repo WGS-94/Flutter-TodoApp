@@ -2,21 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/constants/colors.dart';
 import 'package:flutter_todo_app/constants/space.dart';
 import 'package:flutter_todo_app/constants/text_style.dart';
-import 'package:flutter_todo_app/screens/forgot_password.dart';
 import 'package:flutter_todo_app/screens/signup.dart';
 import 'package:flutter_todo_app/widget/main_button.dart';
 import 'package:flutter_todo_app/widget/text_fild.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
   State<StatefulWidget> createState() => StartState();
 }
 
-class StartState extends State<LoginScreen> {
-  TextEditingController userName = TextEditingController();
-  TextEditingController userPass = TextEditingController();
+class StartState extends State<ForgotPasswordScreen> {
+  TextEditingController userEmail = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +24,26 @@ class StartState extends State<LoginScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: green700,
+                    // border: Border.all(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back_ios_sharp,
+                        color: gray200,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }),
+                ),
+              ),
               const SpaceVH(height: 50.0),
               Image.asset(
                 "assets/images/Projeqta_byQQ_Branco_SemConceito_H.png",
@@ -63,35 +81,9 @@ class StartState extends State<LoginScreen> {
                       ))),
               const SpaceVH(height: 50.0),
               textFild(
-                controller: userName,
+                controller: userEmail,
                 image: 'user.svg',
-                hintTxt: 'Usuário',
-              ),
-              textFild(
-                controller: userPass,
-                image: 'hide.svg',
-                isObs: true,
-                hintTxt: 'Senha',
-              ),
-              const SpaceVH(height: 10.0),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 20.0),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (builder) =>
-                                  const ForgotPasswordScreen()));
-                    },
-                    child: const Text(
-                      'Esqueceu a senha?',
-                      style: headline3,
-                    ),
-                  ),
-                ),
+                hintTxt: 'E-mail',
               ),
               const SpaceVH(height: 20.0),
               Align(
@@ -114,13 +106,13 @@ class StartState extends State<LoginScreen> {
                       child: RichText(
                         text: TextSpan(children: [
                           TextSpan(
-                            text: 'Não possuí uma conta? ',
+                            text: 'Lembra da senha? ',
                             style: headline.copyWith(
                               fontSize: 14.0,
                             ),
                           ),
                           TextSpan(
-                            text: ' Registre-se',
+                            text: ' Faça Login',
                             style: headlineDot.copyWith(
                                 fontSize: 14.0, color: const Color(0xffF5591F)),
                           ),
