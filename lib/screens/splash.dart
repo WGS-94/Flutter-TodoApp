@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/constants/colors.dart';
-import 'login.dart';
+import 'package:flutter_todo_app/screens/login.dart';
 
 void main() {
   runApp(const SplashScreen());
@@ -31,7 +31,7 @@ class StartState extends State<SplashScreen> {
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        context, MaterialPageRoute(builder: (context) => const LoginScreen()));
   }
 
   @override

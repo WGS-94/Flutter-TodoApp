@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_todo_app/constants/colors.dart';
+import 'package:flutter_todo_app/constants/style.dart';
 
 import 'screens/splash.dart';
 
@@ -17,16 +17,17 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor: green800,
-        primaryColor: Colors.white,
-        fontFamily: 'Georgia',
-        textTheme: const TextTheme(
-          displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
-          titleLarge: TextStyle(fontSize: 36, fontStyle: FontStyle.italic),
-          bodyMedium: TextStyle(fontSize: 14, fontFamily: 'Hind'),
-        ),
-      ),
+      // theme: ThemeData(
+      //   scaffoldBackgroundColor: green800,
+      //   primaryColor: Colors.white,
+      //   fontFamily: 'Georgia',
+      //   textTheme: const TextTheme(
+      //     displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
+      //     titleLarge: TextStyle(fontSize: 36, fontStyle: FontStyle.italic),
+      //     bodyMedium: TextStyle(fontSize: 14, fontFamily: 'Hind'),
+      //   ),
+      // ),
+      theme: Stlyes.themeData(),
       debugShowCheckedModeBanner: false,
       // title: 'To Do App',
       home: const SplashScreen(),

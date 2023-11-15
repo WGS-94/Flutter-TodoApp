@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/constants/colors.dart';
+import 'package:flutter_todo_app/constants/space.dart';
+import 'package:flutter_todo_app/constants/text_style.dart';
 import 'package:flutter_todo_app/screens/signup.dart';
+import 'package:flutter_todo_app/widget/main_button.dart';
+import 'package:flutter_todo_app/widget/text_fild.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -10,159 +14,115 @@ class LoginScreen extends StatefulWidget {
 }
 
 class StartState extends State<LoginScreen> {
+  TextEditingController userName = TextEditingController();
+  TextEditingController userPass = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return initWidget();
-  }
-
-  initWidget() {
     return Scaffold(
-        body: SingleChildScrollView(
-            child: Column(
-      children: [
-        Container(
-          height: 200,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
-            color: Color(0xffF5591F),
-            gradient: LinearGradient(
-              colors: [(Color(0xffF5591F)), Color(0xffF2861E)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: Center(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
+      backgroundColor: blackBG,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 50.0),
+        child: SingleChildScrollView(
+          child: Column(
             children: [
-              Container(
-                margin: const EdgeInsets.only(top: 30),
-                child: Image.asset(
-                  "assets/images/Projeqta_byQQ_Branco_SemConceito_H.png",
-                  height: 57,
-                  width: 220,
+              const SpaceVH(height: 50.0),
+              Image.asset(
+                "assets/images/Projeqta_byQQ_Branco_SemConceito_H.png",
+                height: 57,
+                width: 220,
+              ),
+              const SpaceVH(height: 10.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Program de especificadores  ",
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                  GestureDetector(
+                    child: const Text(
+                      "Saiba mais",
+                      style: TextStyle(fontSize: 18, color: Color(0xffF5591F)),
+                    ),
+                    onTap: () {
+                      // Write Tap Code Here.
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => const SignUpScreen(),
+                      //     ));
+                    },
+                  )
+                ],
+              ),
+              const SpaceVH(height: 60.0),
+              textFild(
+                controller: userName,
+                image: 'user.svg',
+                hintTxt: 'Username',
+              ),
+              textFild(
+                controller: userPass,
+                image: 'hide.svg',
+                isObs: true,
+                hintTxt: 'Password',
+              ),
+              const SpaceVH(height: 10.0),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Forgot Password?',
+                      style: headline3,
+                    ),
+                  ),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(right: 20, top: 20),
-                alignment: Alignment.bottomRight,
-                child: const Text(
-                  "Login",
-                  style: TextStyle(fontSize: 20, color: Colors.white),
+              const SpaceVH(height: 30.0),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  children: [
+                    Mainbutton(
+                      onTap: () {},
+                      text: 'Sign in',
+                      btnColor: blueButton,
+                    ),
+                    const SpaceVH(height: 15.0),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => const SignUpScreen()));
+                      },
+                      child: RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text: 'Don\'t have an account? ',
+                            style: headline.copyWith(
+                              fontSize: 14.0,
+                            ),
+                          ),
+                          TextSpan(
+                            text: ' Sign Up',
+                            style: headlineDot.copyWith(
+                              fontSize: 14.0,
+                            ),
+                          ),
+                        ]),
+                      ),
+                    )
+                  ],
                 ),
               )
             ],
-          )),
-        ),
-        Container(
-          alignment: Alignment.center,
-          margin: const EdgeInsets.only(left: 20, right: 20, top: 70),
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          height: 54,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Colors.grey[200],
-          ),
-          child: const TextField(
-            cursorColor: Color(0xffF5591F),
-            decoration: InputDecoration(
-              icon: Icon(
-                Icons.email,
-                color: Color(0xffF5591F),
-              ),
-              hintText: "Usuário",
-              enabledBorder: InputBorder.none,
-              focusedBorder: InputBorder.none,
-            ),
           ),
         ),
-        Container(
-          alignment: Alignment.center,
-          margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          height: 54,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: const Color(0xffEEEEEE),
-          ),
-          child: const TextField(
-            cursorColor: Color(0xffF5591F),
-            decoration: InputDecoration(
-              focusColor: Color(0xffF5591F),
-              icon: Icon(
-                Icons.vpn_key,
-                color: Color(0xffF5591F),
-              ),
-              hintText: "Senha",
-              enabledBorder: InputBorder.none,
-              focusedBorder: InputBorder.none,
-            ),
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-          alignment: Alignment.centerRight,
-          child: GestureDetector(
-            onTap: () {
-              // Write Click Listener Code Here
-            },
-            child: const Text(
-              "Forget Password?",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            // Write Click Listener Code Here.
-          },
-          child: Container(
-            alignment: Alignment.center,
-            margin: const EdgeInsets.only(left: 20, right: 20, top: 0),
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            height: 54,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                  colors: [(Color(0xffF5591F)), Color(0xffF2861E)],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight),
-              borderRadius: BorderRadius.circular(50),
-              color: Colors.grey[200],
-            ),
-            child: const Text(
-              "LOGIN",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(top: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Don't Have Any Account?  ",
-                style: TextStyle(color: Colors.white),
-              ),
-              GestureDetector(
-                child: const Text(
-                  "Register Now",
-                  style: TextStyle(color: Color(0xffF5591F)),
-                ),
-                onTap: () {
-                  // Write Tap Code Here.
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SignUpScreen(),
-                      ));
-                },
-              )
-            ],
-          ),
-        )
-      ],
-    )));
+      ),
+    );
   }
 }
