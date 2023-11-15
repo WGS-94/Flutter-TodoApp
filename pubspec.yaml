@@ -16,6 +16,7 @@ dependencies:
   # firebase_core: ^2.15.1
   # firebase_messaging: ^14.6.6
   # url_launcher: ^6.1.12
+  flutter_svg: '^0.23.0+1'
   cupertino_icons: ^1.0.2
   animations: ^2.0.1
 

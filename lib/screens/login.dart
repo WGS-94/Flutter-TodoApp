@@ -32,39 +32,34 @@ class StartState extends State<LoginScreen> {
                 width: 250,
               ),
               const SpaceVH(height: 15.0),
-              // RichText(
-              //   text: TextSpan(children: (
-              //     TextSpan(
-              //       text: ' Saiba mais',
-              //       style: headlineDot.copyWith(
-              //           fontSize: 14.0, color: const Color(0xffF5591F)),
-              //     ),
-              //   )),
-              // ),
               Center(
-                  child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) => const SignUpScreen()));
-                },
-                child: RichText(
-                  text: TextSpan(children: [
-                    TextSpan(
-                      text: 'Programa de relacionamento para especificadores. ',
-                      style: headline.copyWith(
-                        fontSize: 14.0,
-                      ),
-                    ),
-                    // TextSpan(
-                    //   text: ' Saiba mais',
-                    //   style: headlineDot.copyWith(
-                    //       fontSize: 14.0, color: const Color(0xffF5591F)),
-                    // ),
-                  ]),
-                ),
-              )),
+                  child: SizedBox(
+                      width: 350.0,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (builder) => const SignUpScreen()));
+                        },
+                        child: RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text:
+                                  'Programa de relacionamento para especificadores. ',
+                              style: headline.copyWith(
+                                fontSize: 14.0,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ' Saiba mais',
+                              style: headlineDot.copyWith(
+                                  fontSize: 14.0,
+                                  color: const Color(0xffF5591F)),
+                            ),
+                          ]),
+                        ),
+                      ))),
               const SpaceVH(height: 50.0),
               textFild(
                 controller: userName,

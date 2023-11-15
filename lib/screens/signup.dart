@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo_app/constants/colors.dart';
+import 'package:flutter_todo_app/constants/space.dart';
+import 'package:flutter_todo_app/constants/text_style.dart';
+import 'package:flutter_todo_app/widget/main_button.dart';
+import 'package:flutter_todo_app/widget/text_fild.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -8,212 +13,86 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class InitState extends State<SignUpScreen> {
+  TextEditingController userName = TextEditingController();
+  TextEditingController userPass = TextEditingController();
+  TextEditingController userEmail = TextEditingController();
+  TextEditingController userPh = TextEditingController();
   @override
-  Widget build(BuildContext context) => initWidget();
-
-  Widget initWidget() {
+  Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-            child: Column(
-      children: [
-        Container(
-          height: 250,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
-            color: new Color(0xffF5591F),
-            gradient: LinearGradient(
-              colors: [(new Color(0xffF5591F)), new Color(0xffF2861E)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: Center(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
+      backgroundColor: green800,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 50.0),
+        child: SingleChildScrollView(
+          child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.only(top: 50),
-                child: Image.asset(
-                  "assets/images/Projeqta_byQQ_Branco_SemConceito_H.png",
-                  height: 57,
-                  width: 220,
-                ),
+              const SpaceVH(height: 50.0),
+              Image.asset(
+                "assets/images/Projeqta_byQQ_Branco_SemConceito_H.png",
+                height: 57,
+                width: 250,
               ),
-              Container(
-                margin: EdgeInsets.only(right: 20, top: 20),
-                alignment: Alignment.bottomRight,
-                child: Text(
-                  "Register",
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                ),
-              )
-            ],
-          )),
-        ),
-        Container(
-          alignment: Alignment.center,
-          margin: EdgeInsets.only(left: 20, right: 20, top: 70),
-          padding: EdgeInsets.only(left: 20, right: 20),
-          height: 54,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Colors.grey[200],
-            boxShadow: [
-              BoxShadow(
-                  offset: Offset(0, 10),
-                  blurRadius: 50,
-                  color: Color(0xffEEEEEE)),
-            ],
-          ),
-          child: TextField(
-            cursorColor: Color(0xffF5591F),
-            decoration: InputDecoration(
-              icon: Icon(
-                Icons.person,
-                color: Color(0xffF5591F),
+              const SpaceVH(height: 10.0),
+              const Text(
+                'Use seu CPF/CNPJ para criar seu primeiro acesso',
+                style: headline3,
               ),
-              hintText: "Full Name",
-              enabledBorder: InputBorder.none,
-              focusedBorder: InputBorder.none,
-            ),
-          ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-          padding: EdgeInsets.only(left: 20, right: 20),
-          height: 54,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Colors.grey[200],
-            boxShadow: [
-              BoxShadow(
-                  offset: Offset(0, 10),
-                  blurRadius: 50,
-                  color: Color(0xffEEEEEE)),
-            ],
-          ),
-          child: TextField(
-            cursorColor: Color(0xffF5591F),
-            decoration: InputDecoration(
-              icon: Icon(
-                Icons.email,
-                color: Color(0xffF5591F),
+              const SpaceVH(height: 40.0),
+              textFild(
+                controller: userName,
+                image: 'user.svg',
+                keyBordType: TextInputType.name,
+                hintTxt: 'Nome completo',
               ),
-              hintText: "Email",
-              enabledBorder: InputBorder.none,
-              focusedBorder: InputBorder.none,
-            ),
-          ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-          padding: EdgeInsets.only(left: 20, right: 20),
-          height: 54,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Color(0xffEEEEEE),
-            boxShadow: [
-              BoxShadow(
-                  offset: Offset(0, 20),
-                  blurRadius: 100,
-                  color: Color(0xffEEEEEE)),
-            ],
-          ),
-          child: TextField(
-            cursorColor: Color(0xffF5591F),
-            decoration: InputDecoration(
-              focusColor: Color(0xffF5591F),
-              icon: Icon(
-                Icons.phone,
-                color: Color(0xffF5591F),
+              textFild(
+                controller: userEmail,
+                keyBordType: TextInputType.emailAddress,
+                image: 'user.svg',
+                hintTxt: 'CPF/CNPJ',
               ),
-              hintText: "Phone Number",
-              enabledBorder: InputBorder.none,
-              focusedBorder: InputBorder.none,
-            ),
-          ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-          padding: EdgeInsets.only(left: 20, right: 20),
-          height: 54,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Color(0xffEEEEEE),
-            boxShadow: [
-              BoxShadow(
-                  offset: Offset(0, 20),
-                  blurRadius: 100,
-                  color: Color(0xffEEEEEE)),
-            ],
-          ),
-          child: TextField(
-            cursorColor: Color(0xffF5591F),
-            decoration: InputDecoration(
-              focusColor: Color(0xffF5591F),
-              icon: Icon(
-                Icons.vpn_key,
-                color: Color(0xffF5591F),
+              textFild(
+                controller: userPh,
+                image: 'user.svg',
+                keyBordType: TextInputType.phone,
+                hintTxt: 'E-mail',
               ),
-              hintText: "Enter Password",
-              enabledBorder: InputBorder.none,
-              focusedBorder: InputBorder.none,
-            ),
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            // Write Click Listener Code Here.
-          },
-          child: Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.only(left: 20, right: 20, top: 70),
-            padding: EdgeInsets.only(left: 20, right: 20),
-            height: 54,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [(new Color(0xffF5591F)), new Color(0xffF2861E)],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight),
-              borderRadius: BorderRadius.circular(50),
-              color: Colors.grey[200],
-              boxShadow: [
-                BoxShadow(
-                    offset: Offset(0, 10),
-                    blurRadius: 50,
-                    color: Color(0xffEEEEEE)),
-              ],
-            ),
-            child: Text(
-              "REGISTER",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.only(top: 10, bottom: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Have Already Member?  "),
-              GestureDetector(
-                child: Text(
-                  "Login Now",
-                  style: TextStyle(color: Color(0xffF5591F)),
-                ),
-                onTap: () {
-                  // Write Tap Code Here.
+              textFild(
+                controller: userPass,
+                isObs: true,
+                image: 'hide.svg',
+                hintTxt: 'Senha',
+              ),
+              const SpaceVH(height: 40.0),
+              Mainbutton(
+                onTap: () {},
+                text: 'CADASTRAR',
+                btnColor: blueButton,
+              ),
+              const SpaceVH(height: 10.0),
+              TextButton(
+                onPressed: () {
                   Navigator.pop(context);
                 },
+                child: RichText(
+                  text: TextSpan(children: [
+                    TextSpan(
+                      text: 'Já possuí uma conta? ',
+                      style: headline.copyWith(
+                        fontSize: 14.0,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' Faça login',
+                      style: headlineDot.copyWith(
+                          fontSize: 14.0, color: const Color(0xffF5591F)),
+                    ),
+                  ]),
+                ),
               )
             ],
           ),
-        )
-      ],
-    )));
+        ),
+      ),
+    );
   }
 }
