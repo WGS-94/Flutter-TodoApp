@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:projeqta/constants/colors.dart';
 import 'package:projeqta/widgets/customized_textfield.dart';
 import 'package:projeqta/widgets/customized_button.dart';
 import 'package:projeqta/screens/forgot_passwor.dart';
@@ -52,12 +52,12 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               CustomizedTextfield(
                 myController: _emailController,
-                hintText: "Enter your Email",
+                hintText: "Usuário",
                 isPassword: false,
               ),
               CustomizedTextfield(
                 myController: _passwordController,
-                hintText: "Enter your Password",
+                hintText: "Senha",
                 isPassword: true,
               ),
               Align(
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           MaterialPageRoute(
                               builder: (context) => const ForgotPassword()));
                     },
-                    child: const Text("Forgot Password?",
+                    child: const Text("Esqueceu a senha?",
                         style: TextStyle(
                           color: Color(0xff6A707C),
                           fontSize: 15,
@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               CustomizedButton(
-                buttonText: "Login",
+                buttonText: "ENTRAR",
                 buttonColor: Colors.black,
                 textColor: Colors.white,
                 onPressed: () async {
@@ -112,95 +112,24 @@ class _LoginScreenState extends State<LoginScreen> {
                   // MaterialPageRoute(builder: (_) => const LoginScreen()));
                 },
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 1,
-                      width: MediaQuery.of(context).size.height * 0.15,
-                      color: Colors.grey,
-                    ),
-                    const Text("Or Login with"),
-                    Container(
-                      height: 1,
-                      width: MediaQuery.of(context).size.height * 0.18,
-                      color: Colors.grey,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                        height: 50,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 1),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: IconButton(
-                          icon: const Icon(
-                            FontAwesomeIcons.facebookF,
-                            color: Colors.blue,
-                          ),
-                          onPressed: () {},
-                        )),
-                    Container(
-                      height: 50,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 1),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: IconButton(
-                        icon: const Icon(
-                          FontAwesomeIcons.google,
-                          // color: Colors.blue,
-                        ),
-                        onPressed: () async {
-                          debugPrint("error");
-                        },
-                      ),
-                    ),
-                    Container(
-                        height: 50,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 1),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: IconButton(
-                          icon: const Icon(
-                            FontAwesomeIcons.apple,
-                            // color: Colors.blue,
-                          ),
-                          onPressed: () {},
-                        ))
-                  ],
-                ),
-              ),
               const SizedBox(
-                height: 140,
+                height: 80,
               ),
               const Padding(
                 padding: EdgeInsets.fromLTRB(48, 8, 8, 8.0),
                 child: Row(
                   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Don't have an account?",
+                    Text("Não possuí uma conta?",
                         style: TextStyle(
-                          color: Color(0xff1E232C),
+                          color: white,
                           fontSize: 15,
                         )),
-                    Text("  Register Now",
+                    Text("  Registre-se",
                         style: TextStyle(
-                          color: Color(0xff35C2C1),
-                          fontSize: 15,
-                        )),
+                            color: orange800,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold)),
                   ],
                 ),
               )

@@ -5,8 +5,7 @@ class CustomizedTextfield extends StatelessWidget {
   final String? hintText;
   final bool? isPassword;
   const CustomizedTextfield(
-      {Key? key, required this.myController, this.hintText, this.isPassword})
-      : super(key: key);
+      {super.key, required this.myController, this.hintText, this.isPassword});
 
   @override
   Widget build(BuildContext context) {
