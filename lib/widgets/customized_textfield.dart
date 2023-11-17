@@ -1,45 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:projeqta/constants/colors.dart';
+import 'package:projeqta/constants/text_style.dart';
 
-class CustomizedTextfield extends StatelessWidget {
-  final TextEditingController myController;
-  final String? hintText;
-  final bool? isPassword;
-  const CustomizedTextfield(
-      {super.key, required this.myController, this.hintText, this.isPassword});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: TextField(
-        keyboardType: isPassword!
-            ? TextInputType.visiblePassword
-            : TextInputType.emailAddress,
-        enableSuggestions: isPassword! ? false : true,
-        autocorrect: isPassword! ? false : true,
-        obscureText: isPassword ?? true,
-        controller: myController,
-        decoration: InputDecoration(
-          suffixIcon: isPassword!
-              ? IconButton(
-                  icon: const Icon(Icons.remove_red_eye, color: Colors.grey),
-                  onPressed: () {},
-                )
-              : null,
-          enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Color(0xffE8ECF4), width: 1),
-              borderRadius: BorderRadius.circular(10)),
-          focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Color(0xffE8ECF4), width: 1),
-              borderRadius: BorderRadius.circular(10)),
-          fillColor: const Color(0xffE8ECF4),
-          filled: true,
-          hintText: hintText,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+Widget customizedTextfield({
+  required String hintTxt,
+  required String image,
+  required TextEditingController controller,
+  bool isObs = false,
+  TextInputType? keyBordType,
+}) {
+  return Container(
+    height: 58.0,
+    padding: const EdgeInsets.only(left: 20, right: 40),
+    margin: const EdgeInsets.symmetric(
+      horizontal: 20.0,
+      vertical: 10.0,
+    ),
+    decoration: BoxDecoration(
+      color: green700,
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        //  const Icon(
+        //   Icons.vpn_key,
+        //   color: Color(0xffF5591F),
+        // ),
+        SvgPicture.asset(
+          'assets/icon/$image',
+          height: 20.0,
+          color: green800,
+        ),
+        SizedBox(
+          width: 270.0,
+          child: TextField(
+            textAlignVertical: TextAlignVertical.center,
+            obscureText: isObs,
+            keyboardType: keyBordType,
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: hintTxt,
+              hintStyle: hintStyle,
+            ),
+            style: headline2,
           ),
         ),
-      ),
-    );
-  }
+      ],
+    ),
+  );
 }

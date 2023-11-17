@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:projeqta/constants/colors.dart';
 
-class CustomizedButton extends StatelessWidget {
+class Button extends StatelessWidget {
   final String? buttonText;
   final Color? buttonColor;
   final Color? textColor;
   final VoidCallback? onPressed;
-  const CustomizedButton(
+  const Button(
       {super.key,
       this.buttonText,
       this.buttonColor,
@@ -20,10 +19,10 @@ class CustomizedButton extends StatelessWidget {
       child: InkWell(
         onTap: onPressed,
         child: Container(
-            height: 62,
+            height: 70,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: orange800,
+                color: buttonColor,
                 // border: Border.all(width: 1, color: Colors.black),
                 borderRadius: BorderRadius.circular(10)),
             child: Center(

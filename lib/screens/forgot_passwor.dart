@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projeqta/widgets/customized_button.dart';
-import 'package:projeqta/widgets/customized_textfield.dart';
+import 'package:projeqta/widgets/button.dart';
+import 'package:projeqta/widgets/textfield.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:projeqta/constants/colors.dart';
-import 'package:projeqta/widgets/customized_textfield.dart';
-import 'package:projeqta/widgets/customized_button.dart';
+import 'package:projeqta/constants/space.dart';
+import 'package:projeqta/constants/text_style.dart';
+import 'package:projeqta/screens/signup_screen.dart';
+// import 'package:projeqta/widgets/customized_textfield.dart';
+// import 'package:projeqta/widgets/customized_button.dart';
 import 'package:projeqta/screens/forgot_passwor.dart';
+import 'package:projeqta/widgets/main_button.dart';
+import 'package:projeqta/widgets/customized_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,127 +21,130 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        width: double.infinity,
+    return Scaffold(
+      backgroundColor: green800,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 50.0),
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 1),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: IconButton(
-                      icon: const Icon(Icons.arrow_back_ios_sharp),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      }),
-                ),
+              const SpaceVH(height: 50.0),
+              Image.asset(
+                "assets/Projeqta_byQQ_Branco_SemConceito_H.png",
+                height: 57,
+                width: 250,
               ),
-              const Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Text("Welcome Back! Glad \nto see you again",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                    )),
+              const SpaceVH(height: 15.0),
+              Center(
+                  child: SizedBox(
+                      width: 350.0,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (builder) => const SignUpScreen()));
+                        },
+                        child: RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text:
+                                  'Programa de relacionamento para especificadores. ',
+                              style: headline.copyWith(
+                                fontSize: 14.0,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ' Saiba mais',
+                              style: headlineDot.copyWith(
+                                  fontSize: 14.0,
+                                  color: const Color(0xffF5591F)),
+                            ),
+                          ]),
+                        ),
+                      ))),
+              const SpaceVH(height: 50.0),
+              customizedTextfield(
+                controller: _emailController,
+                image: 'user.svg',
+                hintTxt: 'Usuário',
               ),
-              CustomizedTextfield(
-                myController: _emailController,
-                hintText: "Usuário",
-                isPassword: false,
+              customizedTextfield(
+                controller: _passwordController,
+                image: 'hide.svg',
+                isObs: true,
+                hintTxt: 'Senha',
               ),
-              CustomizedTextfield(
-                myController: _passwordController,
-                hintText: "Senha",
-                isPassword: true,
-              ),
+              // CustomizedTextfield(
+              //   myController: _emailController,
+              //   hintText: "Email",
+              //   isPassword: false,
+              // ),
+              // CustomizedTextfield(
+              //   myController: _passwordController,
+              //   hintText: "Password",
+              //   isPassword: true,
+              // ),
+              const SpaceVH(height: 10.0),
               Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: InkWell(
-                    onTap: () {
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: TextButton(
+                    onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const ForgotPassword()));
+                              builder: (builder) => const ForgotPassword()));
                     },
-                    child: const Text("Esqueceu a senha?",
-                        style: TextStyle(
-                          color: Color(0xff6A707C),
-                          fontSize: 15,
-                        )),
+                    child: const Text(
+                      'Esqueceu a senha?',
+                      style: headline3,
+                    ),
                   ),
                 ),
               ),
-              CustomizedButton(
-                buttonText: "ENTRAR",
-                buttonColor: Colors.black,
-                textColor: Colors.white,
-                onPressed: () async {
-                  try {
-                    debugPrint("error");
-                  } catch (e) {
-                    debugPrint("error");
-
-                    // showDialog(
-                    //     context: context,
-                    //     builder: (context) => AlertDialog(
-                    //             title: const Text(
-                    //                 " Invalid Username or password. Please register again or make sure that username and password is correct"),
-                    //             actions: [
-                    //               ElevatedButton(
-                    //                 child: const Text("Register Now"),
-                    //                 onPressed: () {
-                    //                   Navigator.push(
-                    //                       context,
-                    //                       MaterialPageRoute(
-                    //                           builder: (context) =>
-                    //                               const SignUpScreen()));
-                    //                 },
-                    //               )
-                    //             ]));
-                  }
-
-                  // Navigator.push(context,
-                  // MaterialPageRoute(builder: (_) => const LoginScreen()));
-                },
-              ),
-              const SizedBox(
-                height: 80,
-              ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(48, 8, 8, 8.0),
-                child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              const SpaceVH(height: 20.0),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
                   children: [
-                    Text("Não possuí uma conta?",
-                        style: TextStyle(
-                          color: white,
-                          fontSize: 15,
-                        )),
-                    Text("  Registre-se",
-                        style: TextStyle(
-                            color: orange800,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold)),
+                    CustomizedButton(
+                      onTap: () {},
+                      text: 'ENTRAR',
+                      btnColor: blueButton,
+                    ),
+                    const SpaceVH(height: 15.0),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => const SignUpScreen()));
+                      },
+                      child: RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text: 'Não possuí uma conta? ',
+                            style: headline.copyWith(
+                              fontSize: 14.0,
+                            ),
+                          ),
+                          TextSpan(
+                            text: ' Registre-se',
+                            style: headlineDot.copyWith(
+                                fontSize: 14.0, color: const Color(0xffF5591F)),
+                          ),
+                        ]),
+                      ),
+                    )
                   ],
                 ),
               )
             ],
           ),
         ),
-      )),
+      ),
     );
   }
 }

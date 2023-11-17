@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:projeqta/screens/login_screen.dart';
-import 'package:projeqta/widgets/customized_textfield.dart';
-import 'package:projeqta/widgets/customized_button.dart';
+import 'package:projeqta/widgets/textfield.dart';
+import 'package:projeqta/widgets/button.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
