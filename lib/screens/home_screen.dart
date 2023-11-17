@@ -1,16 +1,15 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_auth101/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:projeqta/screens/login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final String? userName = FirebaseAuth.instance.currentUser?.displayName;
+  // final String? userName = FirebaseAuth.instance.currentUser?.displayName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,13 +18,11 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          Text("Hello $userName"),
+          const Text("Hello User"),
           ElevatedButton(
               onPressed: () async {
-                await FirebaseAuth.instance.signOut();
-                if (!mounted) return;
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const WelcomeScreen();
+                  return const LoginScreen();
                 }));
               },
               child: const Text("Sign Out"))

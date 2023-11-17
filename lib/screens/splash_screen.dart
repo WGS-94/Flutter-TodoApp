@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_app/constants/colors.dart';
-import 'package:flutter_todo_app/screens/login.dart';
+import 'package:projeqta/constants/colors.dart';
+import 'package:projeqta/screens/login_screen.dart';
 
 void main() {
   runApp(const SplashScreen());
@@ -46,8 +46,7 @@ class StartState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                  'assets/images/Projeqta_byQQ_Branco_SemConceito_H.png',
+              Image.asset('assets/Projeqta_byQQ_Branco_SemConceito_H.png',
                   height: 57),
               const SizedBox(height: 33),
               if (defaultTargetPlatform == TargetPlatform.iOS)

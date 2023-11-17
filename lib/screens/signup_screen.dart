@@ -1,14 +1,11 @@
-import 'package:firebase_auth101/services/firebase_auth_service.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../widgets/customized_button.dart';
-import '../widgets/customized_textfield.dart';
-import 'login_screen.dart';
+import 'package:projeqta/screens/login_screen.dart';
+import 'package:projeqta/widgets/customized_textfield.dart';
+import 'package:projeqta/widgets/customized_button.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({super.key});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -83,16 +80,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 textColor: Colors.white,
                 onPressed: () async {
                   try {
-                    await FirebaseAuthService().signup(
-                        _emailController.text.trim(),
-                        _passwordController.text.trim());
-
-                    if (!mounted) return;
-
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const LoginScreen()));
-                  } on FirebaseException catch (e) {
-                    debugPrint(e.message);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()));
+                  } catch (e) {
+                    debugPrint("Error");
                   }
 
                   // Navigator.push(context,
