@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:projeqta/constants/colors.dart';
+// import 'package:projeqta/constants/colors.dart';
 import 'package:projeqta/screens/login_screen.dart';
 
 void main() {
@@ -41,25 +41,24 @@ class StartState extends State<SplashScreen> {
 
   Widget initWidget(BuildContext context) {
     return Scaffold(
-        backgroundColor: green800,
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('assets/Projeqta_byQQ_Branco_SemConceito_H.png',
-                  height: 57),
-              const SizedBox(height: 33),
-              if (defaultTargetPlatform == TargetPlatform.iOS)
-                const CupertinoActivityIndicator(
-                  color: Colors.white,
-                  radius: 20,
-                )
-              else
-                const CircularProgressIndicator(
-                  color: Colors.white,
-                )
-            ],
-          ),
-        ));
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset('assets/Projeqta_byQQ_Branco_SemConceito_H.png',
+              height: 57),
+          const SizedBox(height: 33),
+          if (defaultTargetPlatform == TargetPlatform.iOS)
+            const CupertinoActivityIndicator(
+              color: Colors.white,
+              radius: 20,
+            )
+          else
+            const CircularProgressIndicator(
+              color: Colors.white,
+            )
+        ],
+      ),
+    ));
   }
 }

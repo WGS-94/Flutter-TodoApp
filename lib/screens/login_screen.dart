@@ -6,7 +6,7 @@ import 'package:projeqta/screens/signup_screen.dart';
 // import 'package:projeqta/widgets/customized_textfield.dart';
 // import 'package:projeqta/widgets/customized_button.dart';
 import 'package:projeqta/screens/forgot_passwor.dart';
-import 'package:projeqta/widgets/main_button.dart';
+import 'package:projeqta/widgets/customized_button.dart';
 import 'package:projeqta/widgets/customized_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -22,7 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: green800,
       body: Padding(
         padding: const EdgeInsets.only(top: 50.0),
         child: SingleChildScrollView(

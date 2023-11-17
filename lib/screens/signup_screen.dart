@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:projeqta/screens/login_screen.dart';
-import 'package:projeqta/widgets/textfield.dart';
-import 'package:projeqta/widgets/button.dart';
+import 'package:projeqta/constants/colors.dart';
+import 'package:projeqta/constants/space.dart';
+import 'package:projeqta/constants/text_style.dart';
+import 'package:projeqta/widgets/customized_button.dart';
+import 'package:projeqta/widgets/customized_textfield.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -15,185 +16,83 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
+  final TextEditingController _cpfcnpjController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          body: SingleChildScrollView(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          width: double.infinity,
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 50.0),
+        child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 1),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: IconButton(
-                      icon: const Icon(Icons.arrow_back_ios_sharp),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      }),
-                ),
+              const SpaceVH(height: 50.0),
+              Image.asset(
+                "assets/Projeqta_byQQ_Branco_SemConceito_H.png",
+                height: 57,
+                width: 250,
               ),
-              const Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Text("Hello!  Register to get \nStarted",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                    )),
+              const SpaceVH(height: 10.0),
+              const Text(
+                'Use seu CPF/CNPJ para criar seu primeiro acesso',
+                style: headline3,
               ),
-              CustomizedTextfield(
-                myController: _usernameController,
-                hintText: "Username",
-                isPassword: false,
+              const SpaceVH(height: 30.0),
+              customizedTextfield(
+                controller: _usernameController,
+                image: 'user.svg',
+                keyBordType: TextInputType.name,
+                hintTxt: 'Nome completo',
               ),
-              CustomizedTextfield(
-                myController: _emailController,
-                hintText: "Email",
-                isPassword: false,
+              customizedTextfield(
+                controller: _cpfcnpjController,
+                keyBordType: TextInputType.emailAddress,
+                image: 'user.svg',
+                hintTxt: 'CPF/CNPJ',
               ),
-              CustomizedTextfield(
-                myController: _passwordController,
-                hintText: "Password",
-                isPassword: true,
+              customizedTextfield(
+                controller: _emailController,
+                image: 'user.svg',
+                keyBordType: TextInputType.phone,
+                hintTxt: 'E-mail',
               ),
-              CustomizedTextfield(
-                myController: _confirmPasswordController,
-                hintText: "Confirm Password",
-                isPassword: true,
+              customizedTextfield(
+                controller: _passwordController,
+                isObs: true,
+                image: 'hide.svg',
+                hintTxt: 'Senha',
               ),
+              const SpaceVH(height: 30.0),
               CustomizedButton(
-                buttonText: "Register",
-                buttonColor: Colors.black,
-                textColor: Colors.white,
-                onPressed: () async {
-                  try {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginScreen()));
-                  } catch (e) {
-                    debugPrint("Error");
-                  }
-
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (_) => const LoginScreen()));
+                onTap: () {},
+                text: 'CADASTRAR',
+                btnColor: blueButton,
+              ),
+              const SpaceVH(height: 10.0),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
                 },
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 1,
-                      width: MediaQuery.of(context).size.height * 0.15,
-                      color: Colors.grey,
-                    ),
-                    const Text("Or Register with"),
-                    Container(
-                      height: 1,
-                      width: MediaQuery.of(context).size.height * 0.16,
-                      color: Colors.grey,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                        height: 50,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 1),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: IconButton(
-                          icon: const Icon(
-                            FontAwesomeIcons.facebookF,
-                            color: Colors.blue,
-                          ),
-                          onPressed: () {},
-                        )),
-                    Container(
-                      height: 50,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 1),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: IconButton(
-                        icon: const Icon(
-                          FontAwesomeIcons.google,
-                          // color: Colors.blue,
-                        ),
-                        onPressed: () {},
+                child: RichText(
+                  text: TextSpan(children: [
+                    TextSpan(
+                      text: 'Já possuí uma conta? ',
+                      style: headline.copyWith(
+                        fontSize: 14.0,
                       ),
                     ),
-                    Container(
-                        height: 50,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 1),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: IconButton(
-                          icon: const Icon(
-                            FontAwesomeIcons.apple,
-                            // color: Colors.blue,
-                          ),
-                          onPressed: () {},
-                        ))
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(48, 8, 8, 8.0),
-                child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const Text("Already have an account?",
-                        style: TextStyle(
-                          color: Color(0xff1E232C),
-                          fontSize: 15,
-                        )),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const LoginScreen()));
-                      },
-                      child: const Text("  Login Now",
-                          style: TextStyle(
-                            color: Color(0xff35C2C1),
-                            fontSize: 15,
-                          )),
+                    TextSpan(
+                      text: ' Faça login',
+                      style: headlineDot.copyWith(
+                          fontSize: 14.0, color: const Color(0xffF5591F)),
                     ),
-                  ],
+                  ]),
                 ),
               )
             ],
           ),
         ),
-      )),
+      ),
     );
   }
 }

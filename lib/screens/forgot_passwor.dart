@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:projeqta/widgets/button.dart';
-import 'package:projeqta/widgets/textfield.dart';
+import 'package:projeqta/constants/colors.dart';
+import 'package:projeqta/constants/space.dart';
+import 'package:projeqta/constants/text_style.dart';
+import 'package:projeqta/screens/signup_screen.dart';
+import 'package:projeqta/widgets/customized_textfield.dart';
+import 'package:projeqta/widgets/customized_button.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -14,88 +18,114 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 1),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: IconButton(
-                    icon: const Icon(Icons.arrow_back_ios_sharp),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    }),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text("Forgot Password?",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  )),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                  "Dont worry it occurs to us all. We will send you a link to reset your password.",
-                  style: TextStyle(
-                    color: Color(0xff8391A1),
-                    fontSize: 20,
-                    // fontWeight: FontWeight.bold,
-                  )),
-            ),
-            CustomizedTextfield(
-              myController: _emailController,
-              hintText: "Enter your Email",
-              isPassword: false,
-            ),
-            CustomizedButton(
-              buttonText: "Send Code",
-              buttonColor: Colors.black,
-              textColor: Colors.white,
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            const Spacer(
-              flex: 1,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(68, 8, 8, 8.0),
-              child: Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  const Text("Remember Password?",
-                      style: TextStyle(
-                        color: Color(0xff1E232C),
-                        fontSize: 15,
-                      )),
-                  InkWell(
-                    onTap: () {},
-                    child: const Text("  Login",
-                        style: TextStyle(
-                          color: Color(0xff35C2C1),
-                          fontSize: 15,
-                        )),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 50.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: green700,
+                    // border: Border.all(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                ],
+                  child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back_ios_sharp,
+                        color: gray200,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }),
+                ),
               ),
-            )
-          ],
+              const SpaceVH(height: 50.0),
+              Image.asset(
+                "assets/Projeqta_byQQ_Branco_SemConceito_H.png",
+                height: 57,
+                width: 250,
+              ),
+              const SpaceVH(height: 15.0),
+              Center(
+                  child: SizedBox(
+                      width: 350.0,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (builder) => const SignUpScreen()));
+                        },
+                        child: RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text:
+                                  'Programa de relacionamento para especificadores. ',
+                              style: headline.copyWith(
+                                fontSize: 14.0,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ' Saiba mais',
+                              style: headlineDot.copyWith(
+                                  fontSize: 14.0,
+                                  color: const Color(0xffF5591F)),
+                            ),
+                          ]),
+                        ),
+                      ))),
+              const SpaceVH(height: 50.0),
+              customizedTextfield(
+                controller: _emailController,
+                image: 'user.svg',
+                hintTxt: 'E-mail',
+              ),
+              const SpaceVH(height: 20.0),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  children: [
+                    CustomizedButton(
+                      onTap: () {},
+                      text: 'ENVIAR',
+                      btnColor: blueButton,
+                    ),
+                    const SpaceVH(height: 15.0),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => const SignUpScreen()));
+                      },
+                      child: RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text: 'Lembra da senha? ',
+                            style: headline.copyWith(
+                              fontSize: 14.0,
+                            ),
+                          ),
+                          TextSpan(
+                            text: ' Faça Login',
+                            style: headlineDot.copyWith(
+                                fontSize: 14.0, color: const Color(0xffF5591F)),
+                          ),
+                        ]),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }
