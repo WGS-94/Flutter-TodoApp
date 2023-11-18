@@ -45,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   builder: (builder) => const SignUpScreen()));
                         },
                         child: RichText(
+                          textAlign: TextAlign.center,
                           text: TextSpan(children: [
                             TextSpan(
                               text:

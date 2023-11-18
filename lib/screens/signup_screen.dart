@@ -34,6 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               const SpaceVH(height: 10.0),
               const Text(
+                textAlign: TextAlign.center,
                 'Use seu CPF/CNPJ para criar seu primeiro acesso',
                 style: headline3,
               ),

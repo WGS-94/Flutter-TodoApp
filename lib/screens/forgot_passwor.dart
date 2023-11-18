@@ -30,8 +30,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 padding: const EdgeInsets.all(5.0),
                 child: Container(
                   margin: const EdgeInsets.only(left: 15.0, right: 0.0),
-                  height: 50,
-                  width: 50,
+                  height: 40,
+                  width: 40,
                   decoration: BoxDecoration(
                     color: green700,
                     // border: Border.all(color: Colors.black, width: 1),
@@ -68,6 +68,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                   builder: (builder) => const SignUpScreen()));
                         },
                         child: RichText(
+                          textAlign: TextAlign.center,
                           text: TextSpan(children: [
                             TextSpan(
                               text:
