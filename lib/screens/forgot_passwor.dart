@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeqta/constants/colors.dart';
 import 'package:projeqta/constants/space.dart';
 import 'package:projeqta/constants/text_style.dart';
+import 'package:projeqta/screens/login_screen.dart';
 import 'package:projeqta/screens/signup_screen.dart';
 import 'package:projeqta/widgets/customized_textfield.dart';
 import 'package:projeqta/widgets/customized_button.dart';
@@ -23,10 +24,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         padding: const EdgeInsets.only(top: 50.0),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Container(
+                  margin: const EdgeInsets.only(left: 15.0, right: 0.0),
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
@@ -44,11 +47,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       }),
                 ),
               ),
-              const SpaceVH(height: 50.0),
-              Image.asset(
-                "assets/Projeqta_byQQ_Branco_SemConceito_H.png",
-                height: 57,
-                width: 250,
+              const SpaceVH(height: 70.0),
+              Align(
+                alignment: Alignment.topCenter,
+                child: Image.asset(
+                  "assets/Projeqta_byQQ_Branco_SemConceito_H.png",
+                  height: 57,
+                  width: 250,
+                ),
               ),
               const SpaceVH(height: 15.0),
               Center(
@@ -101,7 +107,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (builder) => const SignUpScreen()));
+                                builder: (builder) => const LoginScreen()));
                       },
                       child: RichText(
                         text: TextSpan(children: [
