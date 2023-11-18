@@ -6,13 +6,14 @@ import 'package:projeqta/constants/text_style.dart';
 Widget customizedTextfield({
   required String hintTxt,
   required String image,
+  // final bool? isPassword,
   required TextEditingController controller,
   bool isObs = false,
   TextInputType? keyBordType,
 }) {
   return Container(
     height: 58.0,
-    padding: const EdgeInsets.only(left: 20, right: 40),
+    padding: const EdgeInsets.only(left: 20, right: 45),
     margin: const EdgeInsets.symmetric(
       horizontal: 20.0,
       vertical: 10.0,
@@ -24,22 +25,28 @@ Widget customizedTextfield({
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        //  const Icon(
-        //   Icons.vpn_key,
-        //   color: Color(0xffF5591F),
-        // ),
         SvgPicture.asset(
           'assets/icon/$image',
           height: 20.0,
-          color: green800,
+          color: orange800,
         ),
         SizedBox(
           width: 270.0,
           child: TextField(
+            keyboardType: keyBordType,
+            // keyboardType: isPassword!
+            //     ? TextInputType.visiblePassword
+            //     : TextInputType.emailAddress,
             textAlignVertical: TextAlignVertical.center,
             obscureText: isObs,
-            keyboardType: keyBordType,
             decoration: InputDecoration(
+              // suffixIcon: isPassword
+              //     ? IconButton(
+              //         icon:
+              //             const Icon(Icons.remove_red_eye, color: Colors.grey),
+              //         onPressed: () {},
+              //       )
+              //     : null,
               border: InputBorder.none,
               hintText: hintTxt,
               hintStyle: hintStyle,

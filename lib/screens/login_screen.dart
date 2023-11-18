@@ -74,17 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 isObs: true,
                 hintTxt: 'Senha',
               ),
-              // CustomizedTextfield(
-              //   myController: _emailController,
-              //   hintText: "Email",
-              //   isPassword: false,
-              // ),
-              // CustomizedTextfield(
-              //   myController: _passwordController,
-              //   hintText: "Password",
-              //   isPassword: true,
-              // ),
-              const SpaceVH(height: 10.0),
+              const SpaceVH(height: 5.0),
               Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
