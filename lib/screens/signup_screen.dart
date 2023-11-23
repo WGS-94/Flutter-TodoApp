@@ -60,7 +60,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               customizedTextfield(
                 controller: _passwordController,
                 isObs: true,
-                image: 'hide.svg',
+                image: 'password.svg',
                 hintTxt: 'Senha',
               ),
               const SpaceVH(height: 30.0),

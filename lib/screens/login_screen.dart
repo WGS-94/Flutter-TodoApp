@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               customizedTextfield(
                 controller: _passwordController,
-                image: 'hide.svg',
+                image: 'password.svg',
                 isObs: true,
                 hintTxt: 'Senha',
               ),
