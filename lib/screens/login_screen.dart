@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeqta/constants/colors.dart';
 import 'package:projeqta/constants/space.dart';
 import 'package:projeqta/constants/text_style.dart';
+import 'package:projeqta/screens/home_screen.dart';
 import 'package:projeqta/screens/signup_screen.dart';
 // import 'package:projeqta/widgets/customized_textfield.dart';
 // import 'package:projeqta/widgets/customized_button.dart';
@@ -110,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (builder) => const SignUpScreen()));
+                                builder: (builder) => const HomeScreen()));
                       },
                       child: RichText(
                         text: TextSpan(children: [
