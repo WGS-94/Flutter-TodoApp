@@ -4,8 +4,8 @@ import 'package:projeqta/constants/app_settings.dart';
 import 'package:projeqta/constants/colors.dart';
 
 class BalanceWidget extends StatelessWidget {
-  final Account account;
-  const BalanceWidget({super.key, required this.account});
+  // final Account account;
+  const BalanceWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,41 +48,38 @@ class BalanceWidget extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.centerLeft,
-              child: Text(
-                "R\$ ${NumberFormat('#,##0.00', 'pt_BR').format(account.balance)}",
+              child: const Text(
+                // "R\$ ${NumberFormat('#,##0.00', 'pt_BR').format(account.balance)}",
+                "R\$ 10.560,00",
                 style: TextStyle(
-                    color: AppColors.black,
-                    fontSize: 32,
-                    fontWeight: FontWeight.w700),
+                    color: tdBlack, fontSize: 32, fontWeight: FontWeight.w700),
               ),
             ),
             Container(
               alignment: Alignment.centerLeft,
-              child: Text(
-                "Saldo + Limite: R\$ ${NumberFormat('#,##0.00', 'pt_BR').format(account.balance! + account.limit!)}",
+              child: const Text(
+                "Saldo + Limite: R\$ 2.000",
                 style: TextStyle(
-                    color: AppColors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600),
+                    color: tdBlack, fontSize: 18, fontWeight: FontWeight.w600),
               ),
             ),
             const SizedBox(
               height: 20,
             ),
-            Divider(
+            const Divider(
               height: 2,
-              color: AppColors.whiteCuston,
+              color: tdBlack,
             ),
             const SizedBox(
               height: 10,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "Ver extrato",
                   style: TextStyle(
-                      color: AppColors.red,
+                      color: orange800,
                       fontSize: 18,
                       fontWeight: FontWeight.w600),
                 ),

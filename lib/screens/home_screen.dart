@@ -3,6 +3,7 @@ import 'package:projeqta/constants/app_settings.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:projeqta/constants/colors.dart';
 import 'package:projeqta/screens/login_screen.dart';
+import 'package:projeqta/widgets/balances.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -80,6 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontWeight: FontWeight.bold),
                     )
                   ])),
+          Positioned(
+              top: (AppSettings.screenHeight / 6) - 30,
+              child: const BalanceWidget()),
           ElevatedButton(
               onPressed: () async {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -90,5 +94,29 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+  }
+}
+
+class HeaderWidget extends StatelessWidget {
+  const HeaderWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        width: AppSettings.screenWidth,
+        height: AppSettings.screenHeight / 5,
+        color: green700,
+        child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Olá, Wilson',
+                style: TextStyle(
+                    fontSize: 18, color: white, fontWeight: FontWeight.bold),
+              )
+            ]));
   }
 }
