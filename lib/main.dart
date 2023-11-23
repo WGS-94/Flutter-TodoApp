@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projeqta/constants/app_settings.dart';
 // import 'package:projeqta/constants/colors.dart';
 import 'package:projeqta/constants/style.dart';
 import 'package:projeqta/screens/splash_screen.dart';
@@ -16,6 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    AppSettings.screenWidth = MediaQuery.of(context).size.width;
+    AppSettings.screenHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: Stlyes.themeData(),

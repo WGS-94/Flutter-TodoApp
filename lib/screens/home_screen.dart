@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:projeqta/constants/app_settings.dart';
+// import 'package:flutter_svg/svg.dart';
 import 'package:projeqta/constants/colors.dart';
 import 'package:projeqta/screens/login_screen.dart';
 
@@ -63,7 +64,22 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          const Text("Hello User"),
+          Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              width: AppSettings.screenWidth,
+              height: AppSettings.screenHeight / 5,
+              color: green700,
+              child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Olá, Wilson',
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: white,
+                          fontWeight: FontWeight.bold),
+                    )
+                  ])),
           ElevatedButton(
               onPressed: () async {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
